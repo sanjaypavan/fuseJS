@@ -1,4 +1,4 @@
-fc.Node = function (name, attributes, childNodes) {
+fc.node = function (name, attributes, childNodes) {
 	this.name = name || 'set';
 	this.attributes = {};
 	this.childNodes = [];
@@ -16,7 +16,7 @@ fc.Node = function (name, attributes, childNodes) {
 	}
 };
 
-fc.Node.prototype = {
+fc.node.prototype = {
 	setAttribute : function (key, value) {
 		this.attributes[key] = value;
 		return this;
@@ -34,7 +34,7 @@ fc.Node.prototype = {
 	
 	addChildNode : function (node) {
 		var self = this;
-		if (node instanceof fc.Node) {
+		if (node instanceof fc.node) {
 			self.childNodes.push(node);	
 		} else if (node instanceof Array) {
 			$.each(node, function(data, index){
@@ -48,7 +48,7 @@ fc.Node.prototype = {
 	addChildNodes : function (name, specificAttributes, defaultAttributes) {
 		var self = this;
 		$.each(specificAttributes, function (index , attributes) {
-			self.addChildNode((new fc.Node(name)).setAttributes(defaultAttributes).setAttributes(attributes));
+			self.addChildNode((new fc.node(name)).setAttributes(defaultAttributes).setAttributes(attributes));
 		});		
 		return self;	
 	},
@@ -63,7 +63,7 @@ fc.Node.prototype = {
 		}
 		level++;
 		
-		var nodeTag = indentationString + "<" + self.name + fc.Utils.getPropertyString(self.attributes) + ">" + ((this.childNodes.length !== 0)?"\n":"");	
+		var nodeTag = indentationString + "<" + self.name + fc.utils.getPropertyString(self.attributes) + ">" + ((this.childNodes.length !== 0)?"\n":"");	
 		chartXml += nodeTag;			
 		
 		$.each(self.childNodes, function (index, node) {			

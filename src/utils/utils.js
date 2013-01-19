@@ -1,5 +1,5 @@
 fc = {};
-fc.Utils = {
+fc.utils = {
 	addProperty : function (node, key, value) {
 		if (value !== undefined) {
 			node.attributes[key] = value;
@@ -15,5 +15,11 @@ fc.Utils = {
 		});
 		
 		return propertyString;
-	}	
+	},
+
+	extend : function (f) {
+		function G() {}
+		G.prototype = f.prototype || f;
+		return new G();
+	}
 };
