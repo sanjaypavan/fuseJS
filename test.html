@@ -1,17 +1,24 @@
 <html>
 	<head>
 		<title>Fusion Charts JavaScript API</title>
-		<script type="text/javascript" src="jquery.js"></script>
-		<script type="text/javascript" src="utils.js"></script>
-		<script type="text/javascript" src="node.js"></script>
-		<script type="text/javascript" src="defaults.js"></script>
+		<script type="text/javascript" src="libs/jquery.js"></script>
+		<script type="text/javascript" src="src/utils/utils.js"></script>
+		<script type="text/javascript" src="src/api/node.js"></script>
+		<script type="text/javascript" src="src/api/set.js"></script>
+		<script type="text/javascript" src="src/utils/defaults.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function () {
-				myNode = new fc.Node('chart');
-				myNode.addProperty("xAxis","20");
-				myNode.addProperty({"yAxis":"30","some":"thing"});
+				myNode = new fc.node('chart');
+				myNode.setAttributes("xAxis","20");
+				myNode.setAttributes({"yAxis":"30","some":"thing"});
 				myNode.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}]);
-				console.log(myNode.toString());
+				console.log(myNode.toXml());
+
+				mySet = new fc.set();
+				mySet.setToolText("Hello tip");
+				mySet.setLink("Sample Link");
+				myNode.addChildNode(mySet);
+				console.log(myNode.toXml());
 			});
 		</script>
 	</head>
