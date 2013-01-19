@@ -25,5 +25,15 @@ fc.utils = {
 
 	getPascalCasedName : function (name) {
 		return name.substring(0,1).toUpperCase() + name.substring(1);
+	},
+
+	getPropertyMap : function (propertyString) {
+		var propertyMap = {};
+		$(propertyString).each(function () {
+			$.each(this.attributes, function (i, attrib) {
+				propertyMap[attrib.name] = attrib.value;
+			});
+		});
+		return propertyMap;
 	}
 };

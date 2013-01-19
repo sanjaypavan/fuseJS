@@ -5,6 +5,7 @@ fuseJS is JavaScript equivalent of RaisePartner ChartFusion Java API
 List of ported classes:
 - com.raisepartner.chartfusion.api.Node
 - com.raisepartner.chartfusion.api.Set
+- com.raisepartner.chartfusion.api.Line
 - com.raisepartner.chartfusion.api.VLine
 - com.raisepartner.chartfusion.api.Chart
 - com.raisepartner.chartfusion.api.Graph
