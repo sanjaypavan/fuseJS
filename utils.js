@@ -2,19 +2,18 @@ fc = {};
 fc.Utils = {
 	addProperty : function (node, key, value) {
 		if (value !== undefined) {
-			node.properties[key] = value;
+			node.attributes[key] = value;
 		} else if (key instanceof Object) {
-			$.extend(true,node.properties,key);
+			$.extend(true,node.attributes,key);
 		}
 	},
 	
-	getPropertyString : function (properties) {
+	getPropertyString : function (attributes) {
 		var propertyString = "";
-		$.each(properties, function(key,value) {
+		$.each(attributes, function(key,value) {
 			propertyString += " " + key + "='" + value + "'";
 		});
 		
 		return propertyString;
 	}	
-	
 };

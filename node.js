@@ -1,21 +1,34 @@
-fc.Node = function (name, properties, childNodes) {
+fc.Node = function (name, attributes, childNodes) {
 	this.name = name || 'set';
-	this.properties = {};
+	this.attributes = {};
 	this.childNodes = [];
 	
-	if(properties !== undefined) {
-		this.properties = properties;
+	//Deep cloning attributes object to ensure no impact on changing attributes elsewhere
+	if(attributes !== undefined) {
+		$.extend(true, this.attributes, attributes);
 	}
 		
 	if(childNodes !== undefined) {
-		this.childNodes = childNodes;
+		var self = this;
+		$.each(childNodes, function (index, childNode) {
+			self.childNodes.push(childNode);
+		});
 	}
 };
 
-//Chart funciton which renders the final chart
 fc.Node.prototype = {
-	addProperty : function (key, value) {
-		fc.Utils.addProperty(this, key, value);
+	setAttribute : function (key, value) {
+		this.attributes[key] = value;
+		return this;
+	},
+
+	setAttributes : function (key, value) {
+		if (value !== undefined) {
+			this.attributes[key] = value;
+		} else if (key instanceof Object) {
+			$.extend(true,this.attributes,key);
+		}
+
 		return this;
 	},
 	
@@ -32,34 +45,36 @@ fc.Node.prototype = {
 		return this;
 	},
 	
-	addChildNodes : function (name, values, defaultProperties) {
-		//Values will be arrays of maps
+	addChildNodes : function (name, specificAttributes, defaultAttributes) {
 		var self = this;
-		$.each(values, function (index , node) {
-			self.addChildNode( (new fc.Node(name)).addProperty(defaultProperties).addProperty(node));
+		$.each(specificAttributes, function (index , attributes) {
+			self.addChildNode((new fc.Node(name)).setAttributes(defaultAttributes).setAttributes(attributes));
 		});		
 		return self;	
 	},
 	
-	generateXml : function () {
+	generateXml : function (level) {
 		var chartXml = "";
 		var self = this;
+
+		var indentationString = "";
+		for (var i=0; i<level; i++) {
+			indentationString += "\t";
+		}
+		level++;
 		
-		//Add chart Properties 
-				
-		var nodeTag = "<" + self.name + fc.Utils.getPropertyString(self.properties) + ">\n";	
+		var nodeTag = indentationString + "<" + self.name + fc.Utils.getPropertyString(self.attributes) + ">" + ((this.childNodes.length !== 0)?"\n":"");	
 		chartXml += nodeTag;			
 		
-		$.each(self.childNodes, function (index, node) {
-			chartXml += node.generateXml();			
+		$.each(self.childNodes, function (index, node) {			
+			chartXml += node.generateXml(level);			
 		});
 		
-		chartXml += "</"+self.name+">";
-		
+		chartXml += "</"+self.name+">\n";		
 		return chartXml;
 	},
 	
 	toString : function() {
-		return this.generateXml();
+		return this.generateXml(0);
 	}
 };
