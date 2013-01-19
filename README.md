@@ -1,7 +1,6 @@
 fuseJS
 ======
-
-fuseJS is the javascript emulation of the RaisePartnet ChartFusion API
+fuseJS is JavaScript equivalent of RaisePartner ChartFusion Java API
 
 List of ported classes:
 - com.raisepartner.chartfusion.api.Node
@@ -24,3 +23,13 @@ List of ported classes:
 - com.raisepartner.chartfusion.api.styles.GlowStyle
 - com.raisepartner.chartfusion.api.styles.ShadowStyle
 - com.raisepartner.chartfusion.api.styles.Styles
+- com.raisepartner.chartfusion.api.area2d.Area2D
+- com.raisepartner.chartfusion.api.area2d.Set
+- com.raisepartner.chartfusion.api.area2d.Line
+- com.raisepartner.chartfusion.api.area2d.TrendLines
+- com.raisepartner.chartfusion.api.area2d.VLine
+- com.raisepartner.chartfusion.api.bar2d.Bar2D
+- com.raisepartner.chartfusion.api.bar2d.Set
+- com.raisepartner.chartfusion.api.bar2d.Line
+- com.raisepartner.chartfusion.api.bar2d.TrendLines
+- com.raisepartner.chartfusion.api.bar2d.VLine
