@@ -18,4 +18,9 @@ List of ported classes:
 - com.raisepartner.chartfusion.api.styles.StyleDefinitions
 - com.raisepartner.chartfusion.api.styles.StyleApplications
 - com.raisepartner.chartfusion.api.styles.AnimationStyle
+- com.raisepartner.chartfusion.api.styles.BevelStyle
+- com.raisepartner.chartfusion.api.styles.BlurStyle
+- com.raisepartner.chartfusion.api.styles.FontStyle
+- com.raisepartner.chartfusion.api.styles.GlowStyle
+- com.raisepartner.chartfusion.api.styles.ShadowStyle
 - com.raisepartner.chartfusion.api.styles.Styles
