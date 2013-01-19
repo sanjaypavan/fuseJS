@@ -1,9 +1,9 @@
 fc.area2d.vLine = function () {
   var self = this;
-  fc.vLine.call(self);
+  fc.vline.call(self);
 };
 
-fc.area2d.vLine.prototype = fc.utils.extend(fc.vLine);
+fc.area2d.vLine.prototype = fc.utils.extend(fc.vline);
 
 (function () {
   var parameterList = ['color'];

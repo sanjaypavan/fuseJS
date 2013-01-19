@@ -1,9 +1,9 @@
 fc.bar2d.vLine = function () {
   var self = this;
-  fc.vLine.call(self);
+  fc.vline.call(self);
 };
 
-fc.bar2d.vLine.prototype = fc.utils.extend(fc.vLine);
+fc.bar2d.vLine.prototype = fc.utils.extend(fc.vline);
 
 (function () {
   var parameterList = ['color'];
