@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Fusion Charts JavaScript API</title>
+    <script type="text/javascript" src="libs/jquery.js"></script>
+    <script type="text/javascript" src="src/utils/utils.js"></script>
+    <script type="text/javascript" src="src/api/node.js"></script>
+    <script type="text/javascript" src="src/api/categories.js"></script>
+    <script type="text/javascript" src="src/api/category.js"></script>
+    <script type="text/javascript" src="src/api/styledChart.js"></script>
+    <script type="text/javascript" src="src/api/chart.js"></script>
+    <script type="text/javascript" src="src/api/dataset.js"></script>
+    <script type="text/javascript" src="src/api/vline.js"></script>
+    <script type="text/javascript" src="src/api/set.js"></script>
+    <script type="text/javascript" src="src/api/graph.js"></script>
+    <script type="text/javascript" src="src/api/styles/style.js"></script>
+    <script type="text/javascript" src="src/api/styles/styleApplications.js"></script>
+    <script type="text/javascript" src="src/api/styles/styleDefinitions.js"></script>
+    <script type="text/javascript" src="src/api/styles/styles.js"></script>
+    <script type="text/javascript" src="src/api/styles/apply.js"></script>
+    <script type="text/javascript" src="src/api/styles/animationStyle.js"></script>
+    <script type="text/javascript" src="src/utils/defaults.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        myNode = new fc.node('chart');
+        myNode.setAttributes("xAxis","20");
+        myNode.setAttributes({"yAxis":"30","some":"thing"});
+        myNode.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}]);
+        console.log(myNode.toString());
+        console.log(myNode);
+
+        mySet = new fc.set();
+        mySet.setToolText("Hello tip");
+        mySet.setLink("Sample Link");
+        myNode.addChildNode(mySet);
+        console.log(myNode.toString());
+        console.log(myNode);
+
+        myChart = new fc.chart();
+        myChart.setNumberScaleValue('100').setBgAngle('180');
+        console.log(myChart.toString());
+        console.log(myChart);
+
+        myGraph = new fc.graph();
+        myGraph.setNumberScaleValue('100').setBgAngle('1080');
+        myGraph.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}]);
+        console.log(myGraph.toString());
+        console.log(myGraph);
+      });
+    </script>
+  </head>
+  
+  <body></body>
+  
+<html>

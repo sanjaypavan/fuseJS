@@ -21,5 +21,9 @@ fc.utils = {
 		function G() {}
 		G.prototype = f.prototype || f;
 		return new G();
+	},
+
+	getPascalCasedName : function (name) {
+		return name.substring(0,1).toUpperCase() + name.substring(1);
 	}
 };
