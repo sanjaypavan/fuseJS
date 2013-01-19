@@ -41,25 +41,25 @@
         myNode.setAttributes("xAxis","20");
         myNode.setAttributes({"yAxis":"30","some":"thing"});
         myNode.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}]);
-        console.log(myNode.toString());
+        console.log(myNode.toXml());
         console.log(myNode);
 
         mySet = new fc.set();
         mySet.setToolText("Hello tip");
         mySet.setLink("Sample Link");
         myNode.addChildNode(mySet);
-        console.log(myNode.toString());
+        console.log(myNode.toXml());
         console.log(myNode);
 
         myChart = new fc.chart();
         myChart.setNumberScaleValue('100').setBgAngle('180');
-        console.log(myChart.toString());
+        console.log(myChart.toXml());
         console.log(myChart);
 
         myGraph = new fc.graph();
         myGraph.setNumberScaleValue('100').setBgAngle('1080');
         myGraph.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}]);
-        console.log(myGraph.toString());
+        console.log(myGraph.toXml());
         console.log(myGraph);
       });
     </script>

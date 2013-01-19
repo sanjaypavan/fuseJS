@@ -74,7 +74,7 @@ fc.node.prototype = {
 		return chartXml;
 	},
 	
-	toString : function() {
+	toXml : function() {
 		return this.generateXml(0);
 	}
 };

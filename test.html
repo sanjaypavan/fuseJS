@@ -12,13 +12,13 @@
 				myNode.setAttributes("xAxis","20");
 				myNode.setAttributes({"yAxis":"30","some":"thing"});
 				myNode.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}]);
-				console.log(myNode.toString());
+				console.log(myNode.toXml());
 
 				mySet = new fc.set();
 				mySet.setToolText("Hello tip");
 				mySet.setLink("Sample Link");
 				myNode.addChildNode(mySet);
-				console.log(myNode.toString());
+				console.log(myNode.toXml());
 			});
 		</script>
 	</head>

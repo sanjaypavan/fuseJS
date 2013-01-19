@@ -1,15 +1,15 @@
-fc.shadowStyle = function (styleName) {
+fc.style.shadowStyle = function (styleName) {
   var self = this;
-  fc.style.call(self, styleName, 'shadow');
+  fc.style.style.call(self, styleName, 'shadow');
 };
 
-fc.shadowStyle.prototype = fc.utils.extend(fc.style);
+fc.style.shadowStyle.prototype = fc.utils.extend(fc.style.style);
 
 (function () {
   var parameterList = ['distance', 'angle', 'color', 'alpha', 'blurX', 'blurY', 'strength', 'quality'];
 
   $.each(parameterList, function(index, parameter) {
-    fc.shadowStyle.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.style.shadowStyle.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });
