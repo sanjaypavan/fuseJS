@@ -1,15 +1,15 @@
-fc.bar2d.vLine = function () {
+fc.bar2d.VLine = function () {
   var self = this;
-  fc.vline.call(self);
+  fc.VLine.call(self);
 };
 
-fc.bar2d.vLine.prototype = fc.utils.extend(fc.vline);
+fc.bar2d.VLine.prototype = fc.utils.extend(fc.VLine);
 
 (function () {
   var parameterList = ['color'];
 
   $.each(parameterList, function (index, parameter) {
-    fc.bar2d.vLine.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.bar2d.VLine.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });

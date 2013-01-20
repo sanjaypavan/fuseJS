@@ -1,9 +1,9 @@
-fc.graph = function (attributes, childNodes) {
+fc.Graph = function (attributes, childNodes) {
   var self = this;
-  fc.styledChart.call(self, 'graph', attributes, childNodes);
+  fc.StyledChart.call(self, 'graph', attributes, childNodes);
 };
 
-fc.graph.prototype = fc.utils.extend(fc.styledChart);
+fc.Graph.prototype = fc.utils.extend(fc.StyledChart);
 
 (function () {
   var parametersList = ['numberScaleValue', 'bgAngle', 'canvasBorderAlpha', 'showLabels', 'divLineDashLen',
@@ -27,7 +27,7 @@ fc.graph.prototype = fc.utils.extend(fc.styledChart);
    'borderAlpha', 'inDecimalSeparator', 'showLegend', 'xAxisMinValue'];
 
   $.each(parametersList, function (index, parameter) {
-    fc.graph.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.Graph.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });  

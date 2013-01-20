@@ -1,6 +1,6 @@
 fc.style.styles = function () {
   var self = this;
-  fc.node.call(self, 'styles');
+  fc.Node.call(self, 'styles');
 
   self.defs = new fc.style.styleDefinitions();
   self.apps = new fc.style.styleApplications();
@@ -9,7 +9,7 @@ fc.style.styles = function () {
   self.addNode(self.apps);
 };
 
-fc.style.styles.prototype = fc.utils.extend(fc.node);
+fc.style.styles.prototype = fc.utils.extend(fc.Node);
 
 fc.style.styles.prototype.getDefinitions = function() {
   return this.defs;

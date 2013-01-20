@@ -1,15 +1,15 @@
-fc.bar2d.line = function () {
+fc.bar2d.Line = function () {
   var self = this;
-  fc.line.call(self);
+  fc.Line.call(self);
 };
 
-fc.bar2d.line.prototype = fc.utils.extend(fc.line);
+fc.bar2d.Line.prototype = fc.utils.extend(fc.Line);
 
 (function () {
   var parameterList = ['showOnTop', 'valueOnRight'];
 
   $.each(parameterList, function (index, parameter) {
-    fc.bar2d.line.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.bar2d.Line.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });

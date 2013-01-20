@@ -1,12 +1,12 @@
-fc.bar2d.trendLines = function () {
+fc.bar2d.TrendLines = function () {
   var self = this;
-  fc.node.call(self, 'trendLines');
+  fc.Node.call(self, 'trendLines');
 };
 
-fc.bar2d.trendLines.prototype = fc.utils.extend(fc.node);
+fc.bar2d.TrendLines.prototype = fc.utils.extend(fc.Node);
 
-fc.bar2d.trendLines.prototype.createLineNode = function () {
-  var node = new fc.bar2d.line();
+fc.bar2d.TrendLines.prototype.createLineNode = function () {
+  var node = new fc.bar2d.Line();
   this.addNode(node);
   return node;
 };

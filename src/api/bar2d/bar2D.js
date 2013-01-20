@@ -1,10 +1,10 @@
 fc.bar2d = {};
-fc.bar2d.bar2D = function () {
+fc.bar2d.Bar2D = function () {
   var self = this;
-  fc.chart.call(self);
+  fc.Chart.call(self);
 };
 
-fc.bar2d.bar2D.prototype = fc.utils.extend(fc.chart);
+fc.bar2d.Bar2D.prototype = fc.utils.extend(fc.Chart);
 
 (function () {
   var parameterList = ['showLimits', 'showDivLineValues', 'yAxisValuesStep', 'showShadow', 'adjustDiv', 
@@ -20,7 +20,7 @@ fc.bar2d.bar2D.prototype = fc.utils.extend(fc.chart);
   'plotSpacePercent'];
 
   $.each(parameterList, function (index, parameter) {
-    fc.bar2d.bar2D.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.bar2d.Bar2D.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });

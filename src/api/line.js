@@ -1,16 +1,16 @@
-fc.line = function (attributes, childNodes) {
+fc.Line = function (attributes, childNodes) {
   var self = this;
-  fc.node.call(self, 'line', attributes, childNodes);
+  fc.Node.call(self, 'line', attributes, childNodes);
 };
 
-fc.line.prototype = fc.utils.extend(fc.node);
+fc.Line.prototype = fc.utils.extend(fc.Node);
 
 (function () {
   var parameterList = ['dashLen', 'isTrendZone', 'dashGap', 'thickness', 'color', 'endValue', 'dashed',
     'startValue', 'displayValue', 'alpha'];
 
   $.each(parameterList, function (index, parameter) {
-    fc.line.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.Line.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });

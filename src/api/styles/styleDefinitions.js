@@ -1,9 +1,9 @@
 fc.style.styleDefinitions = function () {
   var self = this;
-  fc.node.call(self, 'definition');  
+  fc.Node.call(self, 'definition');  
 };
 
-fc.style.styleDefinitions.prototype = fc.utils.extend(fc.node);
+fc.style.styleDefinitions.prototype = fc.utils.extend(fc.Node);
 
 fc.style.styleDefinitions.prototype.defineAnimationStyle = function (styleName) {
   var s = new fc.style.animationStyle(styleName);

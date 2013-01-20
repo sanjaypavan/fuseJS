@@ -1,10 +1,10 @@
 fc.area2d = {};
-fc.area2d.area2D = function () {
+fc.area2d.Area2D = function () {
   var self = this;
-  fc.chart.call(self);
+  fc.Chart.call(self);
 };
 
-fc.area2d.area2D.prototype = fc.utils.extend(fc.chart);
+fc.area2d.Area2D.prototype = fc.utils.extend(fc.Chart);
 
 (function () {
   var parameterList = ['canvasBorderAlpha', 'showPlotBorder', 'plotBorderColor', 'plotBorderThickness', 
@@ -20,7 +20,7 @@ fc.area2d.area2D.prototype = fc.utils.extend(fc.chart);
   'yAxisValuesPadding', 'labelPadding', 'valuePadding', 'canvasPadding'];
 
   $.each(parameterList, function (index, parameter) {
-    fc.area2d.area2D.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.area2d.Area2D.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });

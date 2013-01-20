@@ -6,7 +6,7 @@
  * @param {Object} attributes Attributes of the xml node
  * @param {Array} childNodes Children of the xml node
  */
-fc.node = function (name, attributes, childNodes) {
+fc.Node = function (name, attributes, childNodes) {
 	this.name = name || 'set';
 	this.attributes = {};
 	this.childNodes = [];
@@ -24,7 +24,7 @@ fc.node = function (name, attributes, childNodes) {
 	}
 };
 
-fc.node.prototype = {
+fc.Node.prototype = {
 	/**
 	 * Set a single key value pair as an attribute for the xml node
 	 * @param {String} key
@@ -47,7 +47,7 @@ fc.node.prototype = {
 	
 	addChildNode : function (node) {
 		var self = this;
-		if (node instanceof fc.node) {
+		if (node instanceof fc.Node) {
 			self.childNodes.push(node);	
 		} else if (node instanceof Array) {
 			$.each(node, function(data, index){
@@ -61,7 +61,7 @@ fc.node.prototype = {
 	addChildNodes : function (name, specificAttributes, defaultAttributes) {
 		var self = this;
 		$.each(specificAttributes, function (index , attributes) {
-			self.addChildNode((new fc.node(name)).setAttributes(defaultAttributes).setAttributes(attributes));
+			self.addChildNode((new fc.Node(name)).setAttributes(defaultAttributes).setAttributes(attributes));
 		});		
 		return self;	
 	},

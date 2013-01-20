@@ -1,7 +1,7 @@
 fc.style = {};
 fc.style.style = function (styleName, type) {
   var self = this;
-  fc.node.call(self, "style");
+  fc.Node.call(self, "style");
 
   var PARAMETER_NAME = "name";
   var PARAMETER_TYPE = "type";
@@ -10,4 +10,4 @@ fc.style.style = function (styleName, type) {
   self.setAttribute(PARAMETER_TYPE, type);
 };
 
-fc.style.style.prototype = fc.utils.extend(fc.node);
+fc.style.style.prototype = fc.utils.extend(fc.Node);

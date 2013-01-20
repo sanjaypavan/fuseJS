@@ -1,15 +1,15 @@
-fc.categories = function (attributes, childNodes) {
+fc.Categories = function (attributes, childNodes) {
   var self = this;
-  fc.node.call(self, 'categories', attributes, childNodes);
+  fc.Node.call(self, 'categories', attributes, childNodes);
 };
 
-fc.categories.prototype = fc.utils.extend(fc.node);
+fc.Categories.prototype = fc.utils.extend(fc.Node);
 
 (function () {
   var parameterList = ['fontColor', 'fontSize', 'font'];
 
   $.each(parameterList, function (index, parameter) {
-    fc.categories.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
+    fc.Categories.prototype['set' + fc.utils.getPascalCasedName(parameter)] = function (value) {
       return this.setAttribute(parameter, value);
     };
   });

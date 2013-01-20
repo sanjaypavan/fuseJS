@@ -1,13 +1,13 @@
-fc.styledChart = function (name, attributes, childNodes) {
+fc.StyledChart = function (name, attributes, childNodes) {
   var self = this;
-  fc.node.call(self, name, attributes, childNodes);
+  fc.Node.call(self, name, attributes, childNodes);
 
   self.styles = undefined;  
 };
 
-fc.styledChart.prototype = fc.utils.extend(fc.node);
+fc.StyledChart.prototype = fc.utils.extend(fc.Node);
 
-fc.styledChart.prototype.createStyles = function () {
+fc.StyledChart.prototype.createStyles = function () {
   var self = this;
   if(self.styles === undefined) {
     self.styles = new fc.styles();
@@ -16,34 +16,34 @@ fc.styledChart.prototype.createStyles = function () {
   return self.styles;
 };
 
-fc.styledChart.prototype.getStyles = function () {
+fc.StyledChart.prototype.getStyles = function () {
   return this.styles;
 };
 
-fc.styledChart.prototype.defineAnimationStyle = function (styleName) {
+fc.StyledChart.prototype.defineAnimationStyle = function (styleName) {
   return this.styles.getDefinitions().defineAnimationStyle(styleName);
 };
 
-fc.styledChart.prototype.defineGlowStyle = function (styleName) {
+fc.StyledChart.prototype.defineGlowStyle = function (styleName) {
   return this.styles.getDefinitions().defineGlowStyle(styleName);
 };
 
-fc.styledChart.prototype.defineShadowStyle = function (styleName) {
+fc.StyledChart.prototype.defineShadowStyle = function (styleName) {
   return this.styles.getDefinitions().defineShadowStyle(styleName);
 };
 
-fc.styledChart.prototype.defineBevelStyle = function (styleName) {
+fc.StyledChart.prototype.defineBevelStyle = function (styleName) {
   return this.styles.getDefinitions().defineBevelStyle(styleName);
 };
 
-fc.styledChart.prototype.defineBlurStyle = function (styleName) {
+fc.StyledChart.prototype.defineBlurStyle = function (styleName) {
   return this.styles.getDefinitions().defineBlurStyle(styleName);
 };
 
-fc.styledChart.prototype.defineFontStyle = function (styleName) {
+fc.StyledChart.prototype.defineFontStyle = function (styleName) {
   return this.styles.getDefinitions().defineFontStyle(styleName);
 };
 
-fc.styledChart.prototype.applyStylesToObject = function (toObject, styles) {
+fc.StyledChart.prototype.applyStylesToObject = function (toObject, styles) {
   this.styles.getApplications().applyStyles(toObject, styles);
 };
