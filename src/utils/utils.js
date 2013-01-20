@@ -30,8 +30,10 @@ fc.utils = {
 	getPropertyMap : function (propertyString) {
 		var propertyMap = {};
 		$(propertyString).each(function () {
+			var tagName = this.tagName;
+			propertyMap[tagName] = {};
 			$.each(this.attributes, function (i, attrib) {
-				propertyMap[attrib.name] = attrib.value;
+				propertyMap[tagName][attrib.name] = attrib.value;
 			});
 		});
 		return propertyMap;

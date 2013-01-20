@@ -1,3 +1,11 @@
+/**
+ * Creates an xml node with attributes and childNodes
+ * 
+ * @constructor
+ * @param {String} name Name of the xml node
+ * @param {Object} attributes Attributes of the xml node
+ * @param {Array} childNodes Children of the xml node
+ */
 fc.node = function (name, attributes, childNodes) {
 	this.name = name || 'set';
 	this.attributes = {};
@@ -17,6 +25,11 @@ fc.node = function (name, attributes, childNodes) {
 };
 
 fc.node.prototype = {
+	/**
+	 * Set a single key value pair as an attribute for the xml node
+	 * @param {String} key
+	 * @param {String} value
+	 */
 	setAttribute : function (key, value) {
 		this.attributes[key] = value;
 		return this;
