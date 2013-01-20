@@ -65,6 +65,22 @@ fc.node.prototype = {
 		});		
 		return self;	
 	},
+
+	addNode : function (node) {
+		return this.addChildNode(node);
+	},
+
+	addNodes : function (name, specificAttributes, defaultAttributes) {
+		return this.addChildNodes(name, specificAttributes, defaultAttributes);
+	},
+
+	addVarChildNodes : function () {
+		var self = this;
+		$.each(arguments, function (idx, argument) {
+			self.addChildNode(argument);
+		});
+		return self;
+	},
 	
 	generateXml : function (level) {
 		var chartXml = "";
