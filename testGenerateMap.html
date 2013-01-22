@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Fusion Charts JavaScript API</title>
+		<script type="text/javascript" src="libs/jquery.js"></script>
+		<script type="text/javascript" src="src/utils/utils.js"></script>
+		<script type="text/javascript" src="src/api/node.js"></script>
+		<script type="text/javascript" src="src/api/set.js"></script>
+		<script type="text/javascript" src="src/utils/defaults.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				myNode = new fc.Node('chart');
+				myNode.setAttributes("xAxis","20");
+				myNode.setAttributes({"yAxis":"30","some":"thing"});
+				myNode.addChildNodes('set',[{'label':'Alex','value':'25000'},{'label':'Mark','value':'35000'},{'label':'David','value':'42300'},{'label':'Graham','value':'35300'},{'label':'John','value':'31300'}],{font:'verdana', some :'thing'});
+				console.log(myNode.toXml());
+
+				mySet = new fc.Set();
+				mySet.setToolText("Hello tip");
+				mySet.setLink("Sample Link");
+				myNode.addChildNode(mySet);
+				//var chartXml = myNode.toXml();
+				var chartXml = "<chart caption='Monthly Revenue' xAxisName='Month' yAxisName='Revenue' numberPrefix='$' showValues='0'>   <set label='Jan' value='420000' />   <set label='Feb' value='910000' />   <set label='Mar' value='720000' />   <set label='Apr' value='550000' />   <set label='May' value='810000' />   <set label='Jun' value='510000' />   <set label='Jul' value='680000' />   <set label='Aug' value='620000' />   <set label='Sep' value='610000' />   <set label='Oct' value='490000' />   <set label='Nov' value='530000' />   <set label='Dec' value='330000' />   <trendLines>      <line startValue='700000' color='009933' displayvalue='Target' />    </trendLines>   <styles>      <definition>         <style name='CanvasAnim' type='animation' param='_xScale' start='0' duration='1' />      </definition>      <application>         <apply toObject='Canvas' styles='CanvasAnim' />      </application>      </styles></chart>";
+				console.log(fc.utils.getTreeView(fc.utils.getPropertyMap(chartXml)));
+				console.log(fc.utils.getPropertyMap(chartXml));
+				console.log(myNode.toXml());
+			});
+		</script>
+	</head>
+	
+	<body><div><ul><li>CHART : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : <ul><li>caption : Monthly Revenue</li></ul><ul><li>xaxisname : Month</li></ul><ul><li>yaxisname : Revenue</li></ul><ul><li>numberprefix : $</li></ul><ul><li>showvalues : 0</li></ul></li></ul><ul><li>_children_ : <ul><li>SET : <ul><li>_variable_ : <ul><li>label : undefined</li></ul><ul><li>value : undefined</li></ul></li></ul><ul><li>_defaults_ : </li></ul><ul><li>_children_ : </li></ul></li></ul><ul><li>TRENDLINES : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : </li></ul><ul><li>_children_ : <ul><li>LINE : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : <ul><li>startvalue : 700000</li></ul><ul><li>color : 009933</li></ul><ul><li>displayvalue : Target</li></ul></li></ul><ul><li>_children_ : </li></ul></li></ul></li></ul></li></ul><ul><li>STYLES : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : </li></ul><ul><li>_children_ : <ul><li>DEFINITION : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : </li></ul><ul><li>_children_ : <ul><li>STYLE : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : <ul><li>name : CanvasAnim</li></ul><ul><li>type : animation</li></ul><ul><li>param : _xScale</li></ul><ul><li>start : 0</li></ul><ul><li>duration : 1</li></ul></li></ul><ul><li>_children_ : </li></ul></li></ul></li></ul></li></ul><ul><li>APPLICATION : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : </li></ul><ul><li>_children_ : <ul><li>APPLY : <ul><li>_variable_ : </li></ul><ul><li>_defaults_ : <ul><li>toobject : Canvas</li></ul><ul><li>styles : CanvasAnim</li></ul></li></ul><ul><li>_children_ : </li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>  </div></body>
+	
+<html>
